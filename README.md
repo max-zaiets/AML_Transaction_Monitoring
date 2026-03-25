@@ -77,6 +77,7 @@ The dataset was loaded directly into Snowflake as table `RAW_TRANSACTIONS`. No e
 ## 📌 Scope Note
 
 This project focuses on detection logic and analytical findings rather than data engineering setup. PaySim is a well-structured synthetic dataset with no missing values, no duplicates, and consistent formatting across all columns - data quality validation was straightforward and added no meaningful analytical value. Similarly, the data ingestion process and PowerQuery transformations are routine technical steps and are not covered here. 
+
 ---
 
 ## 🔎 Exploratory Analysis
