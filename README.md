@@ -69,8 +69,8 @@ The dataset was loaded directly into Snowflake as table `RAW_TRANSACTIONS`. No e
 
 **Snowflake schema:**
 
-![Snowflake Table](screenshots/snowflake_table.png)
-![Snowflake Views](screenshots/snowflake_views.png)
+![Snowflake Table](screenshots/snowflake_table.PNG)
+![Snowflake Views](screenshots/snowflake_views.PNG)
 
 ---
 
@@ -122,27 +122,27 @@ The Power BI dashboard tells a five-page story.
 **Page 1 — The Detection Gap**
 The opening page answers one question directly: how much fraud does the current system actually catch? Out of 2,699 confirmed fraud cases, the system flagged 1. The bar chart makes this gap impossible to miss. This is the core problem the rest of the project responds to.
 
-![Detection Gap](screenshots/pbi1.png)
+![Detection Gap](screenshots/pbi1.PNG)
 
 **Page 2 — Where Fraud Happens**
 Fraud is entirely concentrated in CASH_OUT and TRANSFER. The remaining transaction types are clean. This means a compliance team does not need to monitor all 3 million transactions — focusing on two types makes the problem manageable.
 
-![Where Fraud Happens](screenshots/pbi2.png)
+![Where Fraud Happens](screenshots/pbi2.PNG)
 
 **Page 3 — Fraud Over Time**
 The cumulative fraud chart shows a steady, continuous rise over the 10-day period — no spikes, no quiet periods. Fraud was happening every single hour. The daily count chart confirms there was no day with zero fraud. This reinforces that the problem requires continuous monitoring, not periodic reviews.
 
-![Fraud Over Time](screenshots/pbi3.png)
+![Fraud Over Time](screenshots/pbi3.PNG)
 
 **Page 4 — Risk Accounts**
 Applying the two detection rules produces a prioritized list of accounts for investigation, classified as HIGH or MEDIUM risk. Instead of reviewing 3 million transactions, a compliance analyst starts from the top of this list.
 
-![Risk Accounts](screenshots/pbi4.png)
+![Risk Accounts](screenshots/pbi4.PNG)
 
 **Page 5 — Rule Comparison**
 Four detection rules tested side by side: the existing system flag, Rule A (exact balance transfer), Rule B (destination mismatch), and Rule C (combined). The chart shows confirmed fraud caught and recall for each rule. Rule A stands out — 2,642 alerts, all confirmed fraud, recall of 97.89%. Rule C matches the precision but catches only 47.80% of fraud because it requires both conditions simultaneously. This page explains why Rule A was chosen as the foundation for the detection logic.
 
-![Rule Comparison](screenshots/pbi5.png)
+![Rule Comparison](screenshots/pbi5.PNG)
 
 ---
 
