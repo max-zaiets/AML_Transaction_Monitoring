@@ -69,7 +69,7 @@ The dataset was loaded directly into Snowflake as table `RAW_TRANSACTIONS`. No e
 
 **Snowflake schema:**
 
-![Snowflake Tables](screenshots/snowflake_table.png)
+![Snowflake Table](screenshots/snowflake_table.png)
 ![Snowflake Views](screenshots/snowflake_views.png)
 
 ---
