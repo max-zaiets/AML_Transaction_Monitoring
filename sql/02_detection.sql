@@ -30,12 +30,12 @@ SELECT
 FROM vw_account_drain;
 
 
--- -------------------------------------------------------
+
 -- PATTERN 2: High-Value CASH_OUT
 -- Large cash withdrawals above $200,000.
 -- The built-in system flag only watches TRANSFER > 200k -
 -- it completely ignores large CASH_OUTs. This rule fills that gap.
--- -------------------------------------------------------
+
 
 CREATE OR REPLACE VIEW vw_high_value_cashout AS
 SELECT
@@ -61,9 +61,7 @@ SELECT
 FROM vw_high_value_cashout;
 
 
--- -------------------------------------------------------
 -- Combined view - all suspicious transactions in one place
--- -------------------------------------------------------
 
 CREATE OR REPLACE VIEW vw_suspicious_transactions AS
 
@@ -91,3 +89,18 @@ SELECT
     ROUND(SUM(AMOUNT), 0) AS total_amount_flagged
 FROM vw_suspicious_transactions
 GROUP BY detection_rule;
+
+-- Fraud timeline - hourly step with daily grouping
+-- used for cumulative and daily fraud charts in Power BI
+
+
+CREATE OR REPLACE VIEW vw_fraud_timeline AS
+SELECT
+    STEP,
+    CAST(CEIL(STEP / 24.0) AS INT)         AS day_number,
+    COUNT(*)                                AS tx_count,
+    SUM(IS_FRAUD)                           AS fraud_count,
+    SUM(SUM(IS_FRAUD)) OVER (ORDER BY STEP) AS cumulative_fraud
+FROM RAW_TRANSACTIONS
+GROUP BY STEP
+ORDER BY STEP;
