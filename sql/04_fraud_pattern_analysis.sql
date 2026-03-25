@@ -1,12 +1,7 @@
-USE WAREHOUSE COMPUTE_WH;
-USE DATABASE AML_PROJECT;
-USE SCHEMA COMPLIANCE;
 
--- ================================================================
 -- Fraud Pattern Analysis
 -- Goal: find common characteristics of IS_FRAUD=1 transactions
 -- and test whether new rules outperform the existing ones
--- ================================================================
 
 
 -- Step 1: compare fraud vs non-fraud transactions side by side
@@ -28,9 +23,8 @@ WHERE TYPE IN ('TRANSFER', 'CASH_OUT')
 GROUP BY IS_FRAUD;
 
 
--- ================================================================
+
 -- Step 2: final comparison - all rules in one table
--- ================================================================
 
 SELECT rule_name, total_alerts, confirmed_fraud_caught, precision_pct, recall_pct FROM (
 
