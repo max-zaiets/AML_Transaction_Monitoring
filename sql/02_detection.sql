@@ -52,8 +52,7 @@ FROM RAW_TRANSACTIONS
 WHERE TYPE = 'CASH_OUT'
   AND AMOUNT > 200000;
 
-
--- quick check
+--again, just a view check before we proceed
 SELECT
     COUNT(*) AS total_alerts,
     SUM(IS_FRAUD) AS confirmed_fraud,
