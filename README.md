@@ -135,7 +135,7 @@ The cumulative fraud chart shows a steady, continuous rise over the 10-day perio
 ![Fraud Over Time](screenshots/pbi3.PNG)
 
 **Page 4 — Risk Accounts**
-Applying the two detection rules produces a prioritized list of accounts for investigation, classified as HIGH or MEDIUM risk. Instead of reviewing 3 million transactions, a compliance analyst starts from the top of this list.
+Applying the two detection rules produces a prioritized list of accounts for investigation. The table shows the top 30 accounts ranked by risk score, with columns for account ID, risk tier, score, number of rules triggered, and which rule fired. The donut chart breaks the full flagged population into two tiers: 99.57% of accounts fall into HIGH risk (score ≥ 3), driven primarily by the High-Value CASH_OUT rule which assigns 3 points per transaction. Accounts at the top of the list with score 6 have triggered the High-Value CASH_OUT rule multiple times — a pattern consistent with repeat offenders or mule accounts being actively used.
 
 ![Risk Accounts](screenshots/pbi4.PNG)
 
